@@ -16,16 +16,21 @@ struct ContentView: View {
                                endPoint: .bottomTrailing)
                     .edgesIgnoringSafeArea(.all)
                 VStack(alignment: .leading, spacing: 20) {
-                    Text("It's been a while Claire, how are you? Do you have any new updates for me?")
-                        .font(.system(size: 15, weight: .medium, design: .default))
-                        .padding(20)
-                        .background(Color("prettyGreen"))
-                        .cornerRadius(10)
-                        .foregroundColor(.white)
+                    HStack {
+                        Spacer()
+                        Text("It's been a while Claire, how are you? Do you have any new updates for me?")
+                            .font(.system(size: 15, weight: .medium, design: .default))
+                            .padding(20)
+                            .background(Color("prettyGreen"))
+                            .cornerRadius(10)
+                            .foregroundColor(.white)
+                        Spacer()
+                    }
                     
                     Text("Upcoming Birthdays")
                         .font(.system(size: 15, weight: .bold, design: .default))
                         .foregroundColor(Color("beige"))
+                        .padding(.leading, 20)
                     
                     ScrollView(.horizontal, showsIndicators: false)  {
                         HStack {
@@ -39,6 +44,7 @@ struct ContentView: View {
                     Text("Latest updates")
                         .font(.system(size: 15, weight: .bold, design: .default))
                         .foregroundColor(Color("beige"))
+                        .padding(.leading, 20)
                     
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
