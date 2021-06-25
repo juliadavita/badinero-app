@@ -9,11 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ZStack() {
+        ZStack {
             LinearGradient(gradient: Gradient(colors: [Color(.white),  Color("prettyGreen")]),
-                       startPoint: .topLeading,
-                       endPoint: .bottomTrailing)
-                .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                           startPoint: .topLeading,
+                           endPoint: .bottomTrailing)
+                .edgesIgnoringSafeArea(.all)
             VStack(alignment: .leading, spacing: 20) {
                 
                 Text("Welcome back")
@@ -27,35 +27,27 @@ struct ContentView: View {
                     .cornerRadius(10)
                     .foregroundColor(.white)
                 
-                
                 Text("Upcoming Birthdays")
                     .font(.system(size: 15, weight: .bold, design: .default))
                     .foregroundColor(Color("beige"))
                 
-                HStack() {
-
+                HStack {
                     BirthdayView(birthdayPerson: "person-one")
                     BirthdayView(birthdayPerson: "person-two")
                     BirthdayView(birthdayPerson: "person-tree")
                     BirthdayView(birthdayPerson: "person-four")
-                    
                 }
                 
                 Text("Latest updates")
                     .font(.system(size: 15, weight: .bold, design: .default))
                     .foregroundColor(Color("beige"))
                 
-                HStack(){
+                HStack {
                     ExtractedView(highlightImage: "highlight-one")
                     ExtractedView(highlightImage: "highlight-two")
                 }
                 
-                
-                
-                
                 Spacer()
-
-                
                 
             }
         }
@@ -66,7 +58,6 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             ContentView()
-            
         }
     }
 }
@@ -88,7 +79,6 @@ struct BirthdayShort: View {
 }
 
 struct BirthdayView: View {
-    
     var birthdayPerson: String
     
     var body: some View {
@@ -117,7 +107,6 @@ struct HighlightTitle: View {
 }
 
 struct ExtractedView: View {
-    
     var highlightImage: String
     
     var body: some View {
