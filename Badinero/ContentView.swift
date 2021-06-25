@@ -9,46 +9,48 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ZStack {
-            LinearGradient(gradient: Gradient(colors: [Color(.white),  Color("prettyGreen")]),
-                           startPoint: .topLeading,
-                           endPoint: .bottomTrailing)
-                .edgesIgnoringSafeArea(.all)
-            VStack(alignment: .leading, spacing: 20) {
-                
-                Text("Welcome back")
-                    .font(.system(size: 32, weight: .bold, design: .default))
-                    .foregroundColor(Color("prettyGreen"))
-                
-                Text("It's been a while Claire, how are you? Do you have any new updates for me?")
-                    .font(.system(size: 15, weight: .medium, design: .default))
-                    .padding(20)
-                    .background(Color("prettyGreen"))
-                    .cornerRadius(10)
-                    .foregroundColor(.white)
-                
-                Text("Upcoming Birthdays")
-                    .font(.system(size: 15, weight: .bold, design: .default))
-                    .foregroundColor(Color("beige"))
-                
-                HStack {
-                    BirthdayView(birthdayPerson: "person-one")
-                    BirthdayView(birthdayPerson: "person-two")
-                    BirthdayView(birthdayPerson: "person-tree")
-                    BirthdayView(birthdayPerson: "person-four")
+        NavigationView {
+            ZStack {
+                LinearGradient(gradient: Gradient(colors: [Color(.white),  Color("prettyGreen")]),
+                               startPoint: .topLeading,
+                               endPoint: .bottomTrailing)
+                    .edgesIgnoringSafeArea(.all)
+                VStack(alignment: .leading, spacing: 20) {
+                    Text("It's been a while Claire, how are you? Do you have any new updates for me?")
+                        .font(.system(size: 15, weight: .medium, design: .default))
+                        .padding(20)
+                        .background(Color("prettyGreen"))
+                        .cornerRadius(10)
+                        .foregroundColor(.white)
+                    
+                    Text("Upcoming Birthdays")
+                        .font(.system(size: 15, weight: .bold, design: .default))
+                        .foregroundColor(Color("beige"))
+                    
+                    ScrollView(.horizontal, showsIndicators: false)  {
+                        HStack {
+                            BirthdayView(birthdayPerson: "person-one")
+                            BirthdayView(birthdayPerson: "person-two")
+                            BirthdayView(birthdayPerson: "person-tree")
+                            BirthdayView(birthdayPerson: "person-four")
+                        }
+                    }
+                    
+                    Text("Latest updates")
+                        .font(.system(size: 15, weight: .bold, design: .default))
+                        .foregroundColor(Color("beige"))
+                    
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            ExtractedView(highlightImage: "highlight-one")
+                            ExtractedView(highlightImage: "highlight-two")
+                        }
+                    }
+                    
+                    Spacer()
+                    
                 }
-                
-                Text("Latest updates")
-                    .font(.system(size: 15, weight: .bold, design: .default))
-                    .foregroundColor(Color("beige"))
-                
-                HStack {
-                    ExtractedView(highlightImage: "highlight-one")
-                    ExtractedView(highlightImage: "highlight-two")
-                }
-                
-                Spacer()
-                
+                .navigationTitle(Text("Welcome Back"))
             }
         }
     }
@@ -64,17 +66,15 @@ struct ContentView_Previews: PreviewProvider {
 
 
 struct BirthdayShort: View {
-    var body: some View{
-        VStack{
-            Spacer()
-            Text("25/08")
-                .font(.system(size: 14, weight: .bold))
-                .frame(width: 90, height: 20, alignment: .trailing)
-                .padding(.trailing, 10)
-                .background(Color.black.opacity(0.5))
-                .cornerRadius(10)
-                .foregroundColor(.white)
-        }
+    var body: some View {
+        Spacer()
+        Text("25/08")
+            .font(.system(size: 14, weight: .bold))
+            .frame(width: 90, height: 20, alignment: .trailing)
+            .padding(.trailing, 10)
+            .background(Color.black.opacity(0.5))
+            .cornerRadius(10)
+            .foregroundColor(.white)
     }
 }
 
