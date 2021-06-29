@@ -28,7 +28,7 @@ struct ContactView: View {
                                 .fontWeight(.semibold)
                                 .lineLimit(2)
                                 
-                            Text("\(contact.spoken)")
+                            Text("Last spoken: \(contact.spoken)")
                                 .font(.subheadline)
                                 .foregroundColor(.secondary)
                         }

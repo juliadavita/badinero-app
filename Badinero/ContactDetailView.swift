@@ -23,40 +23,32 @@ struct ContactDetailView: View {
             Image(contact.imageName)
                 .resizable()
                 .scaledToFill()
-                .frame(width: 390, height: 400, alignment: .center)
+                .frame(height:300)
                 .cornerRadius(4)
-                .edgesIgnoringSafeArea(.all)
-                .padding(.bottom, -60)
-                
-            
-            Spacer()
+                .edgesIgnoringSafeArea(.top)
+                .padding(.bottom, -30)
             
             Form{
-                
                 Section(header: Text("General info")){
                     TextField("First Name", text: $firstName)
                     TextField("Last Name", text: $lastName)
                     DatePicker("Birthday", selection: $birthday, displayedComponents: .date)
                     DatePicker("Friends since", selection: $since, displayedComponents: .date)
                 }
-                
+
                 Section(header: Text("Badinero")){
                     Toggle("Turn on notifications", isOn: $notification)
                         .toggleStyle(SwitchToggleStyle(tint: Color("prettyGreen")))
-                    
                     Stepper("Speak to", value: $quantity, in: 2...100)
                     Text("Set every \(quantity) week(s)")
                 }
-                
-                
             }
             .edgesIgnoringSafeArea(.bottom)
-            .accentColor(Color("prettyGreen"))
             .toolbar{
                 Button("Save", action: saveUser)
+                    .accentColor(.black)
             }
-                
-            Spacer()
+            
         }
         
     }

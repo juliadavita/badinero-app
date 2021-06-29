@@ -18,6 +18,9 @@ struct ContentView: View {
                                startPoint: .topLeading,
                                endPoint: .bottomTrailing)
                     .edgesIgnoringSafeArea(.all)
+                
+                
+                
                 VStack(alignment: .leading, spacing: 20) {
                     HStack {
                         Spacer()
@@ -58,10 +61,49 @@ struct ContentView: View {
                         }
                     }
                     
+                    VStack(alignment: .center, spacing: 10){
+                        Button("Request permission"){
+                            
+                            UNUserNotificationCenter.current()
+                                .requestAuthorization(options: [.alert, .badge, .sound]) { succes, error in
+                                    if succes {
+                                        print("all set!")
+                                    } else if let error = error {
+                                        print(error.localizedDescription)
+                                    }
+                                }
+                            
+                        }
+                        
+                        Button("Schedule notification"){
+                            let content = UNMutableNotificationContent()
+                            content.title = "Hello there"
+                            content.subtitle = "You haven't spoken to Angel in a while, mind sending het some love?"
+                            content.sound = UNNotificationSound.default
+                            
+                            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+                            
+                            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                            
+                            UNUserNotificationCenter.current().add(request)
+                        }
+                    }
+                    
                     Spacer()
                     
-                   
-                    
+//                    TabView{
+//                        Text("Hello")
+//                            .tabItem {
+//                                Image(systemName: "house")
+//                                Text("Home")
+//                            }
+//                        
+//                        Text("settings")
+//                            .tabItem {
+//                                Image(systemName: "person.crop.circle")
+//                                Text("Home")
+//                            }
+//                    }
                     NavigationLink(
                         destination: ContactView(),
                         label: {
@@ -77,7 +119,11 @@ struct ContentView: View {
             }
         }
     }
+    
+    
 }
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
