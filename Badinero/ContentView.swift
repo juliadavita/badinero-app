@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    var contacts: [Contact] = ContactList.allContacts
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -35,6 +38,7 @@ struct ContentView: View {
                     ScrollView(.horizontal, showsIndicators: false)  {
                         HStack {
                             BirthdayView(birthdayPerson: "person-one")
+                                .padding(.leading, 20)
                             BirthdayView(birthdayPerson: "person-two")
                             BirthdayView(birthdayPerson: "person-tree")
                             BirthdayView(birthdayPerson: "person-four")
@@ -49,14 +53,27 @@ struct ContentView: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
                             ExtractedView(highlightImage: "highlight-one")
+                                .padding(.leading, 20)
                             ExtractedView(highlightImage: "highlight-two")
                         }
                     }
                     
                     Spacer()
                     
+                   
+                    
+                    NavigationLink(
+                        destination: ContactView(),
+                        label: {
+                            CircleButton(color: .init("prettyGreen"), buttonImage: "person.crop.circle")
+                        })
+                    
+                    
                 }
-                .navigationTitle(Text("Welcome Back"))
+                .navigationTitle(
+                    Text("Welcome back")
+                                
+                )
             }
         }
     }
@@ -67,6 +84,19 @@ struct ContentView_Previews: PreviewProvider {
         Group {
             ContentView()
         }
+    }
+}
+
+struct BirthdayView: View {
+    var birthdayPerson: String
+    
+    var body: some View {
+        Image(birthdayPerson)
+            .resizable()
+            .scaledToFill()
+            .frame(width: 100, height: 100, alignment: .center)
+            .cornerRadius(10)
+            .overlay(BirthdayShort(), alignment: .trailing)
     }
 }
 
@@ -84,24 +114,12 @@ struct BirthdayShort: View {
     }
 }
 
-struct BirthdayView: View {
-    var birthdayPerson: String
-    
-    var body: some View {
-        Image(birthdayPerson)
-            .resizable()
-            .scaledToFill()
-            .frame(width: 100, height: 100, alignment: .center)
-            .cornerRadius(10)
-            .overlay(BirthdayShort(), alignment: .trailing)
-    }
-}
 
 struct HighlightTitle: View {
     var body: some View{
         VStack{
             Spacer()
-            Text("Just got married")
+            Text("New job alert!")
                 .font(.system(size: 14, weight: .bold))
                 .frame(width: 170, height: 20, alignment: .trailing)
                 .padding(.trailing, 10)
@@ -122,5 +140,29 @@ struct ExtractedView: View {
             .frame(width: 180, height: 100, alignment: .center)
             .cornerRadius(10)
             .overlay(HighlightTitle(), alignment: .trailing)
+    }
+}
+
+
+
+struct CircleButton: View {
+    
+    var color: Color
+    var buttonImage: String
+    
+    var body: some View {
+        ZStack{
+            Circle()
+                .frame(width: 100, height: 100)
+                .foregroundColor(color)
+                .padding(20)
+                .shadow(color: .clear, radius: 3, x: 0.3, y: 0.3)
+            Image(systemName: "\(buttonImage)")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 50, height: 50, alignment: .center)
+                .foregroundColor(.white)
+                
+        }
     }
 }
