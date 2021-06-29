@@ -31,7 +31,6 @@
 		A3BD45AA2686680A00C84ECE /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3BD45972686680A00C84ECE /* Poppins-Italic.ttf */; };
 		A3BD45AB2686680A00C84ECE /* Poppins-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3BD45982686680A00C84ECE /* Poppins-MediumItalic.ttf */; };
 		A3F57925268B22CC0040F5CC /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F57924268B22CC0040F5CC /* ContactView.swift */; };
-		A3F57927268B3BAF0040F5CC /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F57926268B3BAF0040F5CC /* Video.swift */; };
 		A3F57929268B3F690040F5CC /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F57928268B3F690040F5CC /* Contacts.swift */; };
 		A3F5792B268B46030040F5CC /* ContactDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F5792A268B46020040F5CC /* ContactDetailView.swift */; };
 /* End PBXBuildFile section */
@@ -63,7 +62,6 @@
 		A3BD45972686680A00C84ECE /* Poppins-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Italic.ttf"; sourceTree = "<group>"; };
 		A3BD45982686680A00C84ECE /* Poppins-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-MediumItalic.ttf"; sourceTree = "<group>"; };
 		A3F57924268B22CC0040F5CC /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
-		A3F57926268B3BAF0040F5CC /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		A3F57928268B3F690040F5CC /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
 		A3F5792A268B46020040F5CC /* ContactDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,7 +99,6 @@
 				A3BD45852686680A00C84ECE /* Poppins */,
 				A3B787A826847F3900F72A8B /* BadineroApp.swift */,
 				A3B787AA26847F3900F72A8B /* ContentView.swift */,
-				A3F57926268B3BAF0040F5CC /* Video.swift */,
 				A3F57928268B3F690040F5CC /* Contacts.swift */,
 				A3F57924268B22CC0040F5CC /* ContactView.swift */,
 				A3F5792A268B46020040F5CC /* ContactDetailView.swift */,
@@ -236,7 +233,6 @@
 			files = (
 				A3F5792B268B46030040F5CC /* ContactDetailView.swift in Sources */,
 				A3B787AB26847F3900F72A8B /* ContentView.swift in Sources */,
-				A3F57927268B3BAF0040F5CC /* Video.swift in Sources */,
 				A3F57925268B22CC0040F5CC /* ContactView.swift in Sources */,
 				A3B787A926847F3900F72A8B /* BadineroApp.swift in Sources */,
 				A3F57929268B3F690040F5CC /* Contacts.swift in Sources */,
