@@ -39,13 +39,11 @@ struct ContentView: View {
                     
                     ScrollView(.horizontal, showsIndicators: false)  {
                         HStack {
-                            Birthdays(birthdayPerson: "person-one")
+                            Birthdays(birthdayPerson: "person-one", birthDate: "06/07")
                                 .padding(.leading, 20)
-                            Birthdays(birthdayPerson: "person-two")
-                            Birthdays(birthdayPerson: "person-tree")
-                            Birthdays(birthdayPerson: "person-four")
-                            Birthdays(birthdayPerson: "person-five")
-                            Birthdays(birthdayPerson: "person-six")
+                            Birthdays(birthdayPerson: "person-eight", birthDate: "08/07")
+                            Birthdays(birthdayPerson: "person-ten", birthDate: "10/08")
+                            Birthdays(birthdayPerson: "person-two", birthDate: "31/08")
                         }
                     }
                     
@@ -110,15 +108,25 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct Birthdays: View {
+    
     var birthdayPerson: String
+    var birthDate: String
     
     var body: some View {
-        Image(birthdayPerson)
-            .resizable()
-            .scaledToFill()
-            .frame(width: 100, height: 100, alignment: .center)
-            .cornerRadius(10)
-            .overlay(BirthdayShort(), alignment: .trailing)
+        ZStack{
+            Image(birthdayPerson)
+                .resizable()
+                .scaledToFill()
+                .frame(width: 100, height: 100, alignment: .center)
+                .cornerRadius(10)
+            
+            Text(birthDate)
+                .font(.system(size: 15, weight: .black, design: .default))
+                .foregroundColor(.white)
+                .padding(.top, 70)
+        }
+        
+        
     }
 }
 

@@ -12,7 +12,6 @@ struct ContactView: View {
     var contacts: [Contact] = ContactList.allContacts
     
     var body: some View {
-        
             List(contacts, id:\.id){ contact in
                 NavigationLink(
                     destination: ContactDetailView(contact: contact), label: {
@@ -39,7 +38,6 @@ struct ContactView: View {
             }
             .navigationTitle("Your contacts")
             .padding(.top, -20)
-            
 
     }
     

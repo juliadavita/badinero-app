@@ -22,7 +22,6 @@ struct ContactDetailView: View {
     var body: some View {
         
         
-        
         NavigationView{
                     
             VStack{
@@ -39,7 +38,6 @@ struct ContactDetailView: View {
 
                     
                 Form{
-                    
                     Section(header: Text("General info")){
                         DatePicker("Birthday", selection: $birthday, displayedComponents: .date)
                         DatePicker("Friends since", selection: $since, displayedComponents: .date)
@@ -63,8 +61,8 @@ struct ContactDetailView: View {
 
                             Button("Schedule notification"){
                                 let content = UNMutableNotificationContent()
-                                content.title = "Hello there"
-                                content.body = "You haven't spoken to \(contact.name) in a while, yould you like to show some love?"
+                                content.title = "I think \(contact.name) needs some attention"
+                                content.body = "It's been a while since you two talked, let's change that!"
                                 content.sound = UNNotificationSound.default
 
                                 let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
@@ -75,9 +73,10 @@ struct ContactDetailView: View {
                             }
                     }
                     
+                    
                 }
-                .background(Color("prettyGreen"))
                 .edgesIgnoringSafeArea(.bottom)
+                
             }
             .navigationBarHidden(true)
             .accentColor(Color("prettyGreen"))
