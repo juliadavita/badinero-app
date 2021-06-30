@@ -12,7 +12,7 @@ struct ContactView: View {
     var contacts: [Contact] = ContactList.allContacts
     
     var body: some View {
-        NavigationView {
+        
             List(contacts, id:\.id){ contact in
                 NavigationLink(
                     destination: ContactDetailView(contact: contact), label: {
@@ -24,7 +24,7 @@ struct ContactView: View {
                         .padding(.vertical, 4)
                         
                         VStack(alignment: .leading, spacing: 5){
-                            Text(contact.name)
+                            Text("\(contact.name) \(contact.surname)")
                                 .fontWeight(.semibold)
                                 .lineLimit(2)
                                 
@@ -37,7 +37,8 @@ struct ContactView: View {
 
             }
             .navigationTitle("Your contacts")
-        }
+            .padding(.top, -20)
+        
         
     }
     

@@ -10,7 +10,7 @@ import SwiftUI
 struct ContactDetailView: View {
     
     @State private var firstName = ""
-    @State private var lastName = ""
+    @State private var surName = ""
     @State private var birthday = Date()
     @State private var since = Date()
     @State private var notification = false
@@ -19,38 +19,46 @@ struct ContactDetailView: View {
     var contact: Contact
     
     var body: some View {
-        VStack{
-            Image(contact.imageName)
-                .resizable()
-                .scaledToFill()
-                .frame(height:300)
-                .cornerRadius(4)
-                .edgesIgnoringSafeArea(.top)
-                .padding(.bottom, -30)
+        NavigationView{
             
-            Form{
-                Section(header: Text("General info")){
-                    TextField("First Name", text: $firstName)
-                    TextField("Last Name", text: $lastName)
-                    DatePicker("Birthday", selection: $birthday, displayedComponents: .date)
-                    DatePicker("Friends since", selection: $since, displayedComponents: .date)
-                }
+            
+            VStack{
+                Image(contact.imageName)
+                    .resizable()
+                    .scaledToFill()
+                    .cornerRadius(3.0)
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 420, height: 250, alignment: .center)
+                    .edgesIgnoringSafeArea(.all)
+                    
+                
+                Form{
+                    
+                    Section(header: Text("General info")){
+                        TextField(contact.name, text: $firstName)
+                        TextField(contact.surname, text: $surName)
+                        DatePicker("Birthday", selection: $birthday, displayedComponents: .date)
+                        DatePicker("Friends since", selection: $since, displayedComponents: .date)
+                    }
 
-                Section(header: Text("Badinero")){
-                    Toggle("Turn on notifications", isOn: $notification)
-                        .toggleStyle(SwitchToggleStyle(tint: Color("prettyGreen")))
-                    Stepper("Speak to", value: $quantity, in: 2...100)
-                    Text("Set every \(quantity) week(s)")
+                    Section(header: Text("Badinero")){
+                        Toggle("Turn on notifications", isOn: $notification)
+                            .toggleStyle(SwitchToggleStyle(tint: Color("prettyGreen")))
+                        Stepper("Speak to", value: $quantity, in: 2...100)
+                        Text("Set every \(quantity) week(s)")
+                    }
+                    
                 }
+                .edgesIgnoringSafeArea(.bottom)
+                .toolbar{
+                    Button("Save", action: saveUser)
+                        .accentColor(.black)
+                }
+                
             }
-            .edgesIgnoringSafeArea(.bottom)
-            .toolbar{
-                Button("Save", action: saveUser)
-                    .accentColor(.black)
-            }
+            .navigationBarHidden(true)
             
         }
-        
     }
     
     func saveUser(){

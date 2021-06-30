@@ -24,7 +24,7 @@ struct ContentView: View {
                 VStack(alignment: .leading, spacing: 20) {
                     HStack {
                         Spacer()
-                        Text("It's been a while Claire, how are you? Do you have any new updates for me?")
+                        Text("Hey buddy, how are you? Do you have any new updates for me?")
                             .font(.system(size: 15, weight: .medium, design: .default))
                             .padding(20)
                             .background(Color("prettyGreen"))
@@ -61,6 +61,8 @@ struct ContentView: View {
                         }
                     }
                     
+                    // NOTIFICATIONS
+                    
                     VStack(alignment: .center, spacing: 10){
                         Button("Request permission"){
                             
@@ -78,7 +80,7 @@ struct ContentView: View {
                         Button("Schedule notification"){
                             let content = UNMutableNotificationContent()
                             content.title = "Hello there"
-                            content.subtitle = "You haven't spoken to Angel in a while, mind sending het some love?"
+                            content.subtitle = "You haven't spoken to Angel in a while, mind sending her some love?"
                             content.sound = UNNotificationSound.default
                             
                             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
@@ -89,6 +91,8 @@ struct ContentView: View {
                         }
                     }
                     
+                    
+                    
                     Spacer()
                     
 //                    TabView{
@@ -97,13 +101,14 @@ struct ContentView: View {
 //                                Image(systemName: "house")
 //                                Text("Home")
 //                            }
-//                        
+//
 //                        Text("settings")
 //                            .tabItem {
 //                                Image(systemName: "person.crop.circle")
 //                                Text("Home")
 //                            }
 //                    }
+                    
                     NavigationLink(
                         destination: ContactView(),
                         label: {
