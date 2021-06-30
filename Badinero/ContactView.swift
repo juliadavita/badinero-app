@@ -33,13 +33,14 @@ struct ContactView: View {
                                 .foregroundColor(.secondary)
                         }
                     })
+                    
                 
 
             }
             .navigationTitle("Your contacts")
             .padding(.top, -20)
-        
-        
+            
+
     }
     
 

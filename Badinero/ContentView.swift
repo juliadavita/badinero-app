@@ -11,6 +11,7 @@ struct ContentView: View {
     
     var contacts: [Contact] = ContactList.allContacts
     
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -18,8 +19,6 @@ struct ContentView: View {
                                startPoint: .topLeading,
                                endPoint: .bottomTrailing)
                     .edgesIgnoringSafeArea(.all)
-                
-                
                 
                 VStack(alignment: .leading, spacing: 20) {
                     HStack {
@@ -40,11 +39,13 @@ struct ContentView: View {
                     
                     ScrollView(.horizontal, showsIndicators: false)  {
                         HStack {
-                            BirthdayView(birthdayPerson: "person-one")
+                            Birthdays(birthdayPerson: "person-one")
                                 .padding(.leading, 20)
-                            BirthdayView(birthdayPerson: "person-two")
-                            BirthdayView(birthdayPerson: "person-tree")
-                            BirthdayView(birthdayPerson: "person-four")
+                            Birthdays(birthdayPerson: "person-two")
+                            Birthdays(birthdayPerson: "person-tree")
+                            Birthdays(birthdayPerson: "person-four")
+                            Birthdays(birthdayPerson: "person-five")
+                            Birthdays(birthdayPerson: "person-six")
                         }
                     }
                     
@@ -58,36 +59,6 @@ struct ContentView: View {
                             ExtractedView(highlightImage: "highlight-one")
                                 .padding(.leading, 20)
                             ExtractedView(highlightImage: "highlight-two")
-                        }
-                    }
-                    
-                    // NOTIFICATIONS
-                    
-                    VStack(alignment: .center, spacing: 10){
-                        Button("Request permission"){
-                            
-                            UNUserNotificationCenter.current()
-                                .requestAuthorization(options: [.alert, .badge, .sound]) { succes, error in
-                                    if succes {
-                                        print("all set!")
-                                    } else if let error = error {
-                                        print(error.localizedDescription)
-                                    }
-                                }
-                            
-                        }
-                        
-                        Button("Schedule notification"){
-                            let content = UNMutableNotificationContent()
-                            content.title = "Hello there"
-                            content.subtitle = "You haven't spoken to Angel in a while, mind sending her some love?"
-                            content.sound = UNNotificationSound.default
-                            
-                            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-                            
-                            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-                            
-                            UNUserNotificationCenter.current().add(request)
                         }
                     }
                     
@@ -138,7 +109,7 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-struct BirthdayView: View {
+struct Birthdays: View {
     var birthdayPerson: String
     
     var body: some View {
@@ -164,7 +135,6 @@ struct BirthdayShort: View {
             .foregroundColor(.white)
     }
 }
-
 
 struct HighlightTitle: View {
     var body: some View{

@@ -33,6 +33,7 @@
 		A3F57925268B22CC0040F5CC /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F57924268B22CC0040F5CC /* ContactView.swift */; };
 		A3F57929268B3F690040F5CC /* Contacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F57928268B3F690040F5CC /* Contacts.swift */; };
 		A3F5792B268B46030040F5CC /* ContactDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F5792A268B46020040F5CC /* ContactDetailView.swift */; };
+		A3F5792D268C88E20040F5CC /* BirthdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F5792C268C88E10040F5CC /* BirthdayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		A3F57924268B22CC0040F5CC /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
 		A3F57928268B3F690040F5CC /* Contacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contacts.swift; sourceTree = "<group>"; };
 		A3F5792A268B46020040F5CC /* ContactDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailView.swift; sourceTree = "<group>"; };
+		A3F5792C268C88E10040F5CC /* BirthdayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			children = (
 				A3BD45852686680A00C84ECE /* Poppins */,
 				A3B787A826847F3900F72A8B /* BadineroApp.swift */,
+				A3F5792C268C88E10040F5CC /* BirthdayView.swift */,
 				A3B787AA26847F3900F72A8B /* ContentView.swift */,
 				A3F57928268B3F690040F5CC /* Contacts.swift */,
 				A3F57924268B22CC0040F5CC /* ContactView.swift */,
@@ -234,6 +237,7 @@
 				A3F5792B268B46030040F5CC /* ContactDetailView.swift in Sources */,
 				A3B787AB26847F3900F72A8B /* ContentView.swift in Sources */,
 				A3F57925268B22CC0040F5CC /* ContactView.swift in Sources */,
+				A3F5792D268C88E20040F5CC /* BirthdayView.swift in Sources */,
 				A3B787A926847F3900F72A8B /* BadineroApp.swift in Sources */,
 				A3F57929268B3F690040F5CC /* Contacts.swift in Sources */,
 			);

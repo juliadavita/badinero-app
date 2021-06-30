@@ -16,27 +16,31 @@ struct ContactDetailView: View {
     @State private var notification = false
     @State private var quantity = 1
     
+    
     var contact: Contact
     
     var body: some View {
+        
+        
+        
         NavigationView{
-            
-            
+                    
             VStack{
                 Image(contact.imageName)
                     .resizable()
                     .scaledToFill()
                     .cornerRadius(3.0)
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 420, height: 250, alignment: .center)
-                    .edgesIgnoringSafeArea(.all)
-                    
+                    .frame(width: 420, height: 230, alignment: .center)
                 
+                Text("\(contact.name) \(contact.surname)")
+                    .font(.system(size: 40, weight: .bold))
+                    .foregroundColor(.white)
+
+                    
                 Form{
                     
                     Section(header: Text("General info")){
-                        TextField(contact.name, text: $firstName)
-                        TextField(contact.surname, text: $surName)
                         DatePicker("Birthday", selection: $birthday, displayedComponents: .date)
                         DatePicker("Friends since", selection: $since, displayedComponents: .date)
                     }
@@ -46,18 +50,37 @@ struct ContactDetailView: View {
                             .toggleStyle(SwitchToggleStyle(tint: Color("prettyGreen")))
                         Stepper("Speak to", value: $quantity, in: 2...100)
                         Text("Set every \(quantity) week(s)")
+                            Button("Request permission"){
+                                UNUserNotificationCenter.current()
+                                    .requestAuthorization(options: [.alert, .badge, .sound]) { succes, error in
+                                        if succes {
+                                            print("all set!")
+                                        } else if let error = error {
+                                            print(error.localizedDescription)
+                                        }
+                                    }
+                            }
+
+                            Button("Schedule notification"){
+                                let content = UNMutableNotificationContent()
+                                content.title = "Hello there"
+                                content.body = "You haven't spoken to \(contact.name) in a while, yould you like to show some love?"
+                                content.sound = UNNotificationSound.default
+
+                                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+
+                                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+
+                                UNUserNotificationCenter.current().add(request)
+                            }
                     }
                     
                 }
+                .background(Color("prettyGreen"))
                 .edgesIgnoringSafeArea(.bottom)
-                .toolbar{
-                    Button("Save", action: saveUser)
-                        .accentColor(.black)
-                }
-                
             }
             .navigationBarHidden(true)
-            
+            .accentColor(Color("prettyGreen"))
         }
     }
     
@@ -72,6 +95,8 @@ struct ContactDetailView_Previews: PreviewProvider {
     }
 }
 
+
+
 #if canImport(UIKit)
 extension View {
     func hideKeyboard(){
@@ -79,3 +104,5 @@ extension View {
     }
 }
 #endif
+
+

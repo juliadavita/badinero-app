@@ -5,6 +5,7 @@
 //  Created by Julia Lanu Allen on 29/06/21.
 //
 
+import Combine
 import SwiftUI
 
 struct Contact: Identifiable {
